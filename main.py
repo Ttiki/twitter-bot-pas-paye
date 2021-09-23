@@ -3,6 +3,7 @@ import tweepy
 from datetime import datetime, date
 import schedule  
 from keep_alive import keep_alive
+from time import sleep
 
 #Twitter Keys & Token
 CONSUMER_KEY = os.environ['CONSUMER_KEY']
@@ -31,10 +32,13 @@ def newTweet():
   api.update_status("Jour n°%s depuis la fin du contrat sans être payé." % (result.days))
   print("Jour n°%s depuis la fin du contrat sans être payé." % (result.days))
 
-# run the function job() every 30 minutes  
+# run the function tweet every day  
 schedule.every(1).days.do(newTweet)  
 
-while True:  
-  schedule.run_pending()  
+if __name__ == '__main__':
+  # This would be how it constantly runs the check
+  while True:
+    schedule.run_pending() 
+
 
 keep_alive()

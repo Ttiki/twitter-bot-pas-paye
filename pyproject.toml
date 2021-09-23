@@ -7,6 +7,8 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 tweepy = "^3.10.0"
+schedule = "^1.1.0"
+Flask = "^2.0.1"
 
 [tool.poetry.dev-dependencies]
 
